@@ -1,0 +1,21 @@
+{
+  "name": "dashboard_bda",
+  "version": "1.0.0",
+  "description": "Dashboard de Películas",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gael Guzmán Munguía",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
