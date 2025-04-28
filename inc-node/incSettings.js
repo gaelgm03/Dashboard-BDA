@@ -12,7 +12,7 @@ _gServers[0] = {
 if (_KR_InstanceType == "developing") {
     _gServers[0] = {
         KS_Host: "localhost",
-        KS_Name: "", // Nombre de la base
+        KS_Name: "moviedb",
         KS_User: "root",
         KS_Pswd: 'root'
     };
