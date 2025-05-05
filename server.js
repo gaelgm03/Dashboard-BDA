@@ -102,6 +102,43 @@ app.get("/act_getdata", async function(req, res) {
     return res.send(lJSON);
 })
 
+//Nuevo
+app.get('/api/roi', async (req, res) => {
+    const minBudget = parseInt(req.query.minBudget, 10) || 0;
+    const sql = `
+      SELECT
+        movies.movie_name,
+        performance.production_budget,
+        performance.worldwide_gross,
+        CAST(
+          CASE
+            WHEN performance.production_budget > 0
+            THEN (performance.worldwide_gross - performance.production_budget) / performance.production_budget
+            ELSE 0
+          END AS DECIMAL(10, 2)
+        ) AS roi
+      FROM moviedb.movies
+      JOIN moviedb.performance
+        ON movies.id = performance.movie_id
+      WHERE performance.production_budget >= :minBudget
+      AND performance.production_budget IS NOT NULL
+      AND performance.worldwide_gross IS NOT NULL
+      ORDER BY roi DESC
+      LIMIT 10
+    `;
+    try {
+      const results = await sequelize.query(sql, {
+        replacements: { minBudget },
+        type: QueryTypes.SELECT
+      });
+      console.log('ROI Query Results:', results); 
+      return res.json(results);
+    } catch (err) {
+      console.error('ROI query failed:', err);
+      return res.status(500).json({ error: err.message });
+    }
+  });
+
 app.listen(PORT, async function() {
     console.log('Listening on port', PORT);
     console.log('DB Errs', gConnErr);

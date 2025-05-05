@@ -9,7 +9,7 @@ export const SQL_BestPerformance = " \
 export const SQL_HigherROI = " \
     SELECT movies.movie_name, performance.production_budget, performance.worldwide_gross, (performance.worldwide_gross - performance.production_budget) / performance.production_budget AS roi \
     FROM moviedb.movies \
-    JOIN moviedb.performance  ON movies.id = performance.movie_id \
+    JOIN moviedb.performance ON movies.id = performance.movie_id \
     WHERE performance.production_budget > 0 \
     ORDER BY roi DESC \
     LIMIT 10 \
@@ -41,12 +41,17 @@ export const SQL_PhysicalPerformance = " \
 ";
 
 export const SQL_AnualProfitability = " \
-    SELECT YEAR(m.release_date) AS año, AVG(p.worldwide_gross - p.production_budget) AS avg_profit \
-    FROM movies m \
-    JOIN performance p ON m.id = p.movie_id \
-    WHERE m.release_date IS NOT NULL \
-    GROUP BY año \
-    ORDER BY año \
+    SELECT * \
+    FROM ( \
+        SELECT YEAR(m.release_date) AS año, AVG(p.worldwide_gross - p.production_budget) AS avg_profit \
+        FROM movies m \
+        JOIN performance p ON m.id = p.movie_id \
+        WHERE m.release_date IS NOT NULL \
+        GROUP BY año \
+        ORDER BY año DESC \
+        LIMIT 10 \
+    ) AS ultimos10 \
+    ORDER BY año ASC \
 ";
 
 export const SQL_StdDurationProfit = " \
