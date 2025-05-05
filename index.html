@@ -117,7 +117,6 @@
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link" href="#">Chart.js</a>
                                 <a class="nav-link" href="#">Echarts</a>
-                                <a class="nav-link" href="#">Gauge.js</a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Hecho por:</div>
@@ -152,7 +151,7 @@
                     <p class="lead text-muted mb-4">Análisis comercial y estadístico de la industria cinematográfica global</p>
                     
                     <!-- Filtros Globales -->
-                    <div class="row mb-4">
+                    <!--<div class="row mb-4">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between align-items-center">
@@ -206,26 +205,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <i class="fas fa-chart-bar me-1"></i>
-                                    Top 10 Películas por Ingresos Globales
+                                    <i class="fas fa-dollar-sign me-1"></i>
+                                    Películas Más Rentables por Ganancia Neta
                                 </div>
                                 <div class="card-body">
-                                    <div class="mb-2">
-                                        <select id="revenuePeriodFilter" class="form-select form-select-sm w-auto">
-                                            <option value="all-time">Todo el tiempo</option>
-                                            <option value="decade-2010s">Década 2010s</option>
-                                            <option value="decade-2000s">Década 2000s</option>
-                                            <option value="decade-1990s">Década 1990s</option>
-                                        </select>
-                                    </div>
-                                    <div class="chart-container">
-                                        <canvas id="chartBestPerformance"></canvas>
+                                    <div class="chart-container" style="height: 300px; position: relative;">
+                                        <canvas id="profitChart"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -237,15 +228,7 @@
                                     Palabras Clave Más Frecuentes en Películas Exitosas
                                 </div>
                                 <div class="card-body">
-                                    <div class="mb-2">
-                                        <select id="keywordsPeriodFilter" class="form-select form-select-sm w-auto">
-                                            <option value="all">Todas las décadas</option>
-                                            <option value="2010s">2010s</option>
-                                            <option value="2000s">2000s</option>
-                                            <option value="1990s">1990s</option>
-                                        </select>
-                                    </div>
-                                    <div class="chart-container">
+                                    <div class="chart-container" style="height: 300px; position: relative;">
                                         <canvas id="chartPopularKeywords"></canvas>
                                     </div>
                                 </div>
@@ -260,16 +243,7 @@
                                     Ventas Comparativas de DVD y BluRay
                                 </div>
                                 <div class="card-body">
-                                    <div class="mb-2">
-                                        <select id="physicalMediaYearFilter" class="form-select form-select-sm w-auto">
-                                            <option value="all">Todos los años</option>
-                                            <option value="2020-2023">2020-2023</option>
-                                            <option value="2015-2019">2015-2019</option>
-                                            <option value="2010-2014">2010-2014</option>
-                                            <option value="2005-2009">2005-2009</option>
-                                        </select>
-                                    </div>
-                                    <div class="chart-container">
+                                    <div class="chart-container" style="height: 300px; position: relative;">
                                         <canvas id="chartPhysicalPerformance"></canvas>
                                     </div>
                                 </div>
@@ -282,20 +256,7 @@
                                     Evolución de la Rentabilidad Anual del Cine
                                 </div>
                                 <div class="card-body">
-                                    <div class="mb-2 d-flex gap-2">
-                                        <select id="profitMetricFilter" class="form-select form-select-sm w-auto">
-                                            <option value="total">Ganancia Total</option>
-                                            <option value="average">Ganancia Promedio</option>
-                                            <option value="median">Ganancia Mediana</option>
-                                        </select>
-                                        <select id="profitCategoryFilter" class="form-select form-select-sm w-auto">
-                                            <option value="all">Todas las categorías</option>
-                                            <option value="blockbuster">Blockbusters</option>
-                                            <option value="indie">Cine Independiente</option>
-                                            <option value="international">Cine Internacional</option>
-                                        </select>
-                                    </div>
-                                    <div class="chart-container">
+                                    <div class="chart-container" style="height: 300px; position: relative;">
                                         <canvas id="chartAnualProfitability"></canvas>
                                     </div>
                                 </div>
@@ -306,20 +267,12 @@
                         <div class="col-xl-6">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <i class="fas fa-dollar-sign me-1"></i>
-                                    Películas Más Rentables por Ganancia Neta
+                                    <i class="fas fa-chart-bar me-1"></i>
+                                    Top 10 Películas por Ingresos Globales
                                 </div>
                                 <div class="card-body">
-                                    <div class="mb-2">
-                                        <select id="profitTimeRangeFilter" class="form-select form-select-sm w-auto">
-                                            <option value="all-time">Todo el tiempo</option>
-                                            <option value="last-5-years">Últimos 5 años</option>
-                                            <option value="last-10-years">Últimos 10 años</option>
-                                            <option value="last-20-years">Últimos 20 años</option>
-                                        </select>
-                                    </div>
-                                    <div class="chart-container">
-                                        <canvas id="profitChart"></canvas>
+                                    <div class="chart-container" style="height: 300px; position: relative;">
+                                        <canvas id="chartBestPerformance"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -341,7 +294,7 @@
                                             <option value="10000000">10 millones+ USD</option>
                                         </select>
                                     </div>
-                                    <div id="roiTable"></div>
+                                    <div id="roiTable" style="height: 240px; overflow-y: auto;"></div>
                                 </div>
                             </div>
                         </div>
@@ -354,21 +307,7 @@
                                     Distribución Global de Producción Cinematográfica
                                 </div>
                                 <div class="card-body">
-                                    <div class="mb-2 d-flex gap-2">
-                                        <select id="mapMetricFilter" class="form-select form-select-sm w-auto">
-                                            <option value="productions">Número de Producciones</option>
-                                            <option value="revenue">Ingresos Totales</option>
-                                            <option value="budget">Inversión Total</option>
-                                        </select>
-                                        <select id="mapYearFilter" class="form-select form-select-sm w-auto">
-                                            <option value="all">Todo el período</option>
-                                            <option value="2020-2023">2020-2023</option>
-                                            <option value="2010-2019">2010-2019</option>
-                                            <option value="2000-2009">2000-2009</option>
-                                            <option value="1990-1999">1990-1999</option>
-                                        </select>
-                                    </div>
-                                    <div id="heatmap" style="width: 100%; height: 450px;"></div>
+                                    <div id="heatmap" style="width: 100%; height: 400px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +337,7 @@
     
     <script>
         // Código para manejar los filtros globales y actualizar las gráficas
-        document.addEventListener('DOMContentLoaded', function() {
+        /*document.addEventListener('DOMContentLoaded', function() {
             // Resetear filtros
             document.getElementById('resetFilters').addEventListener('click', function() {
                 // Restablecer todos los selectores de filtro a sus valores predeterminados
@@ -431,7 +370,7 @@
             
             // Inicializar
             initCharts();
-        });
+        });*/
     </script>
 </body>
 </html>
